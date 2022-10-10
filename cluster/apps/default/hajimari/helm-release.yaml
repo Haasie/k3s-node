@@ -29,26 +29,38 @@ spec:
         matchNames:
           - default
           - networking
-      name: "you"
+          - media
+      name: "Haasie"
       customApps:
-        - name: Some External Cluster Service
-          url: http://192.168.1.100:5000
-          icon: test-tube
+        - name: Home Assistant
+          url: https://homeassistant.haasie.nl
+          icon: home-variant
+        - name: Truenas
+          url: https://truenas.haasie.nl
+          icon: nas
+        - name: Proxmox
+          url: https://proxmox.haasie.nl
+          icon: server
+        - name: Pihole
+          url: http://pi.hole/admin
+          icon: pi-hole
       groups:
+        - name: Shopping
+          links:
+            - name: Satsback
+              url: "https://satsback.com"
         - name: Communicate
           links:
             - name: Discord
               url: "https://discord.com"
-            - name: Gmail
-              url: "https://gmail.com"
+            - name: Proton Mail
+              url: "https://account.proton.me/login?language=en"
             - name: Slack
               url: "https://slack.com/signin"
         - name: Cloud
           links:
-            - name: Box
-              url: "https://box.com"
-            - name: Dropbox
-              url: "https://dropbox.com"
+            - name: Balena cloud
+              url: "https://dashboard.balena-cloud.com"
             - name: Drive
               url: "https://drive.google.com"
         - name: Design
@@ -67,6 +79,8 @@ spec:
               url: "https://devdocs.io"
             - name: Devhints
               url: "https://devhints.io"
+            - name: GitHub
+              url: "https://github.com/haasie"
         - name: Lifestyle
           links:
             - name: Design Milk
@@ -99,6 +113,22 @@ spec:
               url: "https://theverge.com/"
             - name: MIT Technology Review
               url: "https://www.technologyreview.com/"
+        - name: Cyberskilzzz
+          links:
+            - name: TryHackMe
+              url: "https://tryhackme.com"
+            - name: Certifiedsecure
+              url: "https://www.certifiedsecure.com"
+            - name: Blue Team Labs
+              url: "https://blueteamlabs.online"
+            - name: Cyberdefenders
+              url: "https://cyberdefenders.org/"
+            - name: HackTheBox
+              url: "https://www.hackthebox.com/"
+        - name: Learning & Development
+          links:
+            - name: Udemy
+              url: "https://udemy.com"
     ingress:
       main:
         enabled: true
