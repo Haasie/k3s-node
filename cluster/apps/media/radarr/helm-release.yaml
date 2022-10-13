@@ -1,0 +1,62 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: radarr
+  namespace: media
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 0.2.2
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    image:
+      repository: ghcr.io/onedr0p/radarr-develop
+      tag: 4.2.3.6575@sha256:c18425b9a0e0871141db3d7e8892806df53376f682559d62b6f8c25bb9009d86
+      pullPolicy: IfNotPresent
+    env:
+      TZ: "${TIMEZONE}"
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "movie-filter"
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+        hosts:
+          - host: "radarr.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - "radarr.${SECRET_DOMAIN}"
+            secretName: "radarr-tls"
+    persistence:
+      config:
+        enabled: true
+        existingClaim: radarr-config-v1
+      media:
+        enabled: true
+        type: nfs
+        server: "192.168.1.4"
+        path: /mnt/pool-01/media/
+        mountPath: /media/
+        readOnly: false
