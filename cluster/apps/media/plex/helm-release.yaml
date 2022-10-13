@@ -58,11 +58,11 @@ spec:
         tls:
           - hosts:
               - "plex.${SECRET_DOMAIN}"
-            secretName: "plex-tls"
+            secretName: "plex-cert"
     persistence:
       config:
         enabled: true
-        existingClaim: plex-config-v3
+        existingClaim: plex-config-v1
       media:
         enabled: true
         type: nfs
