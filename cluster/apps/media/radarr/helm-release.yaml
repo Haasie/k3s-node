@@ -27,6 +27,11 @@ spec:
       pullPolicy: IfNotPresent
     env:
       TZ: "${TIMEZONE}"
+    service:
+      main:
+        ports:
+          http:
+            port: 7878
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 568
