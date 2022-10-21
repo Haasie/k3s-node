@@ -53,7 +53,7 @@ spec:
         tls:
           - hosts:
               - "sonarr.${SECRET_DOMAIN}"
-            secretName: "sonarr-tls"
+            secretName: "sonarr-cert"
     persistence:
       config:
         enabled: true
