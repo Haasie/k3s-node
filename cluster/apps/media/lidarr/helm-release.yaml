@@ -27,7 +27,7 @@ spec:
       pullPolicy: IfNotPresent
     env:
       TZ: "${TIMEZONE}"
-      LIDARR__INSTANCE_NAME: Lidarr
+      LIDARR__INSTANCE_NAME: lidarr
       LIDARR__PORT: &port 8686
       LIDARR__LOG_LEVEL: info
     service:
