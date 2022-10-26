@@ -7,4 +7,5 @@ resources:
   - radarr
   - lidarr
   - sonarr
+  - readarr
   - sabnzbd
