@@ -21,11 +21,6 @@ spec:
       repository: ghost
       tag: 5.14.2
       pullPolicy: IfNotPresent
-    service:
-      main:
-        ports:
-          http:
-            port: &port 80
     env:
       TZ: "${TIMEZONE}"
       url: "https://blog.${SECRET_DOMAIN}"
@@ -57,5 +52,4 @@ spec:
       content:
         enabled: true
         existingClaim: ghost-config
-    mariadb:
-      enable: false
+        size: 2Gi
