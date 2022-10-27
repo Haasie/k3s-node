@@ -29,6 +29,11 @@ spec:
       database__connection__user: ghost
       database__connection__password: ${SECRET_GHOST_MYSQL_PASSWORD}
       database__connection__database: ghost
+    service:
+      main:
+        ports:
+          http:
+            port: 80
     ingress:
       main:
         enabled: true
@@ -39,6 +44,7 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           external-dns/is-public: "true"
+
         hosts:
           - host: "blog.${SECRET_DOMAIN}"
             paths:
