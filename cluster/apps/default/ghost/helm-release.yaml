@@ -23,17 +23,18 @@ spec:
       pullPolicy: IfNotPresent
     env:
       TZ: "${TIMEZONE}"
-      url: "https://blog.${SECRET_DOMAIN}"
+      url: "http://blog.${SECRET_DOMAIN}"
       database__client: mysql
       database__connection__host: ghost-mysql
       database__connection__user: ghost
       database__connection__password: ${SECRET_GHOST_MYSQL_PASSWORD}
       database__connection__database: ghost
+      NODE_ENV: production
     service:
       main:
         ports:
           http:
-            port: 80
+            port: 2368
     ingress:
       main:
         enabled: true
@@ -58,4 +59,5 @@ spec:
       content:
         enabled: true
         existingClaim: ghost-config
+        mountPath: /var/lib/ghost/content
         size: 2Gi
