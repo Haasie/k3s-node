@@ -68,3 +68,10 @@ spec:
         path: /mnt/pool-01/media/
         mountPath: /media/
         readOnly: false
+      downloads:
+        enabled: true
+        type: nfs
+        server: "192.168.1.4"
+        path: /mnt/Cache/downloads
+        mountPath: /downloads
+        readOnly: false
