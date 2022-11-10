@@ -70,8 +70,8 @@ spec:
         enabled: true
         type: nfs
         server: "192.168.1.4"
-        path: /mnt/pool-01/media
-        mountPath: /media
+        path: /mnt/Cache/downloads
+        mountPath: /downloads
         readOnly: false
       incomplete:
         enabled: true
