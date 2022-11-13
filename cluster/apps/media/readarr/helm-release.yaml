@@ -27,6 +27,8 @@ spec:
       pullPolicy: IfNotPresent
     env:
       TZ: "${TIMEZONE}"
+      PUID: "${SECURITY_CONTEXT_RUN_AS_USER}"
+      PGID: "${SECURITY_CONTEXT_RUN_AS_GROUP}"
     service:
       main:
         ports:
@@ -36,9 +38,6 @@ spec:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
-      fsGroupChangePolicy: "OnRootMismatch"
-      supplementalGroups:
-        - 100
     ingress:
       main:
         enabled: true
@@ -60,7 +59,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: readarr-config-v2
+        existingClaim: readarr-config-v1
       media:
         enabled: true
         type: nfs
