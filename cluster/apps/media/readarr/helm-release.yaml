@@ -27,8 +27,9 @@ spec:
       pullPolicy: IfNotPresent
     env:
       TZ: "${TIMEZONE}"
-      PUID: "${SECURITY_CONTEXT_RUN_AS_USER}"
-      PGID: "${SECURITY_CONTEXT_RUN_AS_GROUP}"
+      READARR__INSTANCE_NAME: readarr
+      READARR__PORT: &port 8787
+      READARR__LOG_LEVEL: info
     service:
       main:
         ports:
