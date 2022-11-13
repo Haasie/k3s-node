@@ -34,11 +34,6 @@ spec:
         ports:
           http:
             port: 8787
-    podSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
-      fsGroupChangePolicy: "OnRootMismatch"
     ingress:
       main:
         enabled: true
@@ -61,6 +56,7 @@ spec:
       config:
         enabled: true
         existingClaim: readarr-config-v4
+
       media:
         enabled: true
         type: nfs
