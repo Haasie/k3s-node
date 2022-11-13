@@ -27,9 +27,8 @@ spec:
       pullPolicy: IfNotPresent
     env:
       TZ: "${TIMEZONE}"
-      READARR__INSTANCE_NAME: readarr
-      READARR__PORT: &port 8787
-      READARR__LOG_LEVEL: info
+      PUID: "${SECURITY_CONTEXT_RUN_AS_USER}"
+      PGID: "${SECURITY_CONTEXT_RUN_AS_GROUP}"
     service:
       main:
         ports:
@@ -61,7 +60,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: readarr-config-v5
+        existingClaim: readarr-config-v4
       media:
         enabled: true
         type: nfs
