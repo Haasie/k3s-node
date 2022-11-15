@@ -54,7 +54,7 @@ spec:
               - *host
             secretName: "readarr-tls"
     podSecurityContext:
-      runAsUser: 568
+      runAsUser: 1001
       runAsGroup: 568
       fsGroup: 568
       fsGroupChangePolicy: "OnRootMismatch"
