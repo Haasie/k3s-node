@@ -52,6 +52,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: "readarr-tls"
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 568
