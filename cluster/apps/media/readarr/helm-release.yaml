@@ -1,7 +1,8 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: readarr
+  name: &app readarr
   namespace: media
 spec:
   interval: 15m
@@ -22,18 +23,18 @@ spec:
       retries: 5
   values:
     image:
-      repository: lscr.io/linuxserver/readarr
-      tag: nightly
-      pullPolicy: IfNotPresent
+      repository: ghcr.io/onedr0p/readarr-nightly
+      tag: 0.1.1.1459@sha256:67241b71406e3a69a0463d56ccc4f7857096c1f16120a2576d2ddc0c23f572c7
     env:
       TZ: "${TIMEZONE}"
-      PUID: "${SECURITY_CONTEXT_RUN_AS_USER}"
-      PGID: "${SECURITY_CONTEXT_RUN_AS_GROUP}"
+      READARR__INSTANCE_NAME: Readarr
+      READARR__PORT: &port 80
+      READARR__LOG_LEVEL: info
     service:
       main:
         ports:
           http:
-            port: 8787
+            port: *port
     ingress:
       main:
         enabled: true
@@ -44,25 +45,30 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-          - host: "readarr.${SECRET_DOMAIN}"
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
-              - "readarr.${SECRET_DOMAIN}"
-            secretName: "readarr-tls"
+              - *host
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups:
+        - 100
     persistence:
       config:
         enabled: true
-        existingClaim: readarr-config-v11
-
+        existingClaim: readarr-config-v1
       media:
         enabled: true
         type: nfs
         server: "192.168.1.4"
-        path: /mnt/pool-01/media/books
-        mountPath: /home/books
+        path: /mnt/pool-01/media/
+        mountPath: /media/
         readOnly: false
       downloads:
         enabled: true
@@ -71,3 +77,9 @@ spec:
         path: /mnt/Cache/downloads
         mountPath: /downloads
         readOnly: false
+    resources:
+      requests:
+        cpu: 10m
+        memory: 250Mi
+      limits:
+        memory: 1000Mi
