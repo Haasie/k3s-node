@@ -68,7 +68,7 @@ spec:
         enabled: true
         type: nfs
         server: "192.168.1.4"
-        path: /mnt/pool-01/media/
+        path: /mnt/pool-01/media/books/books
         mountPath: /media/
         readOnly: false
       downloads:
