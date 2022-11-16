@@ -54,15 +54,11 @@ spec:
               - *host
             secretName: "overseerr-cert"
     podSecurityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
-      fsGroup: 1000
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
       fsGroupChangePolicy: "OnRootMismatch"
     persistence:
-      cache:
-        enabled: true
-        type: emptyDir
-        mountPath: /app/.next/cache
       config:
         enabled: true
         existingClaim: overseerr-config-v1
