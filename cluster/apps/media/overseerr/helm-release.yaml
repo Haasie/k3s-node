@@ -62,6 +62,10 @@ spec:
       config:
         enabled: true
         existingClaim: overseerr-config-v2
+      cache:
+        enabled: true
+        type: emptyDir
+        mountPath: /app/.next/cache
     resources:
       requests:
         cpu: 10m
