@@ -53,22 +53,14 @@ spec:
           - hosts:
               - *host
             secretName: "overseerr-cert"
-    podSecurityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
-      fsGroup: 1000
-      fsGroupChangePolicy: "OnRootMismatch"
     persistence:
       config:
         enabled: true
-        existingClaim: overseerr-config-v2
-      cache:
-        enabled: true
-        type: emptyDir
-        mountPath: /app/.next/cache
+        existingClaim: overseerr-config-v3
+        mountPath: /app/config
     resources:
       requests:
-        cpu: 10m
-        memory: 250Mi
+        cpu: 15m
+        memory: 226M
       limits:
-        memory: 1000Mi
+        memory: 1937M
