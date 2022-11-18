@@ -8,3 +8,4 @@ resources:
   - metrics-server
   - reloader
   - intel-gpu-plugin
+  - node-feature-discovery
