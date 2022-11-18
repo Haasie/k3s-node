@@ -82,11 +82,3 @@ spec:
                   operator: In
                   values:
                     - "true"
-    resources:
-      requests:
-        gpu.intel.com/i915: 1
-        cpu: 100m
-        memory: 2Gi
-      limits:
-        gpu.intel.com/i915: 1
-        memory: 5Gi
