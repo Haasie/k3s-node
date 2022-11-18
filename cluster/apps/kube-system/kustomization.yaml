@@ -7,3 +7,4 @@ resources:
   # - kured
   - metrics-server
   - reloader
+  - intel-gpu-plugin
