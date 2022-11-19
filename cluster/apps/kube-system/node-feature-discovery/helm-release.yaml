@@ -31,7 +31,7 @@ spec:
         core:
           sources:
             - custom
-#            - pci
+            - pci
             - usb
         sources:
           usb:
