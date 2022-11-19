@@ -53,7 +53,7 @@ spec:
         hosts:
           - host: "plex.${SECRET_DOMAIN}"
             paths:
-              - path: /web/index.html
+              - path: /
                 pathType: Prefix
         tls:
           - hosts:
