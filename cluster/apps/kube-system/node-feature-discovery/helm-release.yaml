@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: node-feature-discovery
-  namespace: kube-system
+  namespace: default
 spec:
   interval: 15m
   chart:
@@ -27,6 +27,8 @@ spec:
     worker:
       annotations:
         configmap.reloader.stakater.com/reload: node-feature-discovery-worker-conf
+      nodeSelector:
+        node-role.kubernetes.io/worker: "true"
       config:
         core:
           sources:
