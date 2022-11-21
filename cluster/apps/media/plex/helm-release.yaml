@@ -52,8 +52,9 @@ spec:
         annotations:
           hajimari.io/enable: "true"
           hajimari.io/icon: "movie"
-          external-dns.home.arpa/enabled: "true"
-          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
         hosts:
           - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
@@ -61,8 +62,8 @@ spec:
                 pathType: Prefix
         tls:
           - hosts:
-              - *host
-            secretName: "plex-tls"
+              - "plex.${SECRET_DOMAIN}"
+            secretName: "plex-media-tls"
     persistence:
       config:
         enabled: true
