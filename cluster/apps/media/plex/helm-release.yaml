@@ -20,6 +20,11 @@ spec:
   upgrade:
     remediation:
       retries: 5
+  dependsOn:
+    - name: intel-gpu-plugin
+      namespace: kube-system
+    - name: node-feature-discovery
+      namespace: kube-system
   values:
     image:
       repository: ghcr.io/onedr0p/plex
@@ -47,17 +52,16 @@ spec:
         annotations:
           hajimari.io/enable: "true"
           hajimari.io/icon: "movie"
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-          external-dns/is-public: "true"
+          external-dns.home.arpa/enabled: "true"
+          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:
-          - host: "plex.${SECRET_DOMAIN}"
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
-              - "plex.${SECRET_DOMAIN}"
+              - *host
             secretName: "plex-tls"
     persistence:
       config:
