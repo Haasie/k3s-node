@@ -60,4 +60,3 @@ spec:
         enabled: true
         existingClaim: ghost-config
         mountPath: /var/lib/ghost/content
-        size: 2Gi
