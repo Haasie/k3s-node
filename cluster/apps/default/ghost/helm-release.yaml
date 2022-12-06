@@ -23,9 +23,9 @@ spec:
       pullPolicy: IfNotPresent
     env:
       TZ: "${TIMEZONE}"
-      url: "http://blog.${SECRET_DOMAIN}"
+      url: "https://blog.${SECRET_DOMAIN}"
       database__client: mysql
-      database__connection__host: ghost-mysql.default.svc.cluster
+      database__connection__host: ghost-mysql
       database__connection__user: ghost
       database__connection__password: ${SECRET_GHOST_MYSQL_PASSWORD}
       database__connection__database: ghost
