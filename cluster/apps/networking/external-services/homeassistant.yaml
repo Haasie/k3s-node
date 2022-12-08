@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: *app
 spec:
   type: ExternalName
-  externalName: homeassistant.local
+  externalName: homeassistant.local.
   ports:
     - name: http
       port: &port 8123
