@@ -21,7 +21,7 @@ spec:
     fullnameOverride: *app
     image:
       repository: docker.io/benbusby/whoogle-search
-      tag: 0.8.0
+      tag: 0.8.1
     service:
       main:
         ports:
