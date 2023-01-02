@@ -25,8 +25,9 @@ metadata:
     app.kubernetes.io/name: *app
     app.kubernetes.io/instance: *app
   annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    hajimari.io/icon: mdi:lan
     hajimari.io/enable: "true"
-    hajimari.io/icon: "linux"
     cert-manager.io/cluster-issuer: "letsencrypt-production"
     nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
 spec:
