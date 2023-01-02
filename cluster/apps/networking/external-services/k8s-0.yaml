@@ -11,7 +11,7 @@ spec:
   type: ExternalName
   externalName: "192.168.1.5"
   ports:
-    - name: http
+    - name: https
       port: &port 9090
       protocol: TCP
       targetPort: *port
