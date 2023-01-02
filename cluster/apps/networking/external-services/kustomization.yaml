@@ -5,4 +5,4 @@ resources:
   - ./homeassistant.yaml
   - ./k8s-0.yaml
   - ./k8s-1.yaml
-  - ./truenas.yaml
+#  - ./truenas.yaml
