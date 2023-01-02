@@ -11,7 +11,7 @@ spec:
   type: ExternalName
   externalName: "192.168.1.4"
   ports:
-    - name: https
+    - name: http
       port: &port 443
       protocol: TCP
       targetPort: *port
@@ -36,7 +36,7 @@ spec:
     - host: &host "truenas.${SECRET_DOMAIN}"
       http:
         paths:
-          - path: /ui
+          - path: /
             pathType: Prefix
             backend:
               service:
