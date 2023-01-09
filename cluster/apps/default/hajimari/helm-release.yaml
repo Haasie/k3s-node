@@ -24,7 +24,7 @@ spec:
       retries: 5
   values:
     hajimari:
-      defaultEnable: false
+      defaultEnable: true
       namespaceSelector:
         matchNames:
           - default
@@ -41,9 +41,6 @@ spec:
         - name: Proxmox
           url: https://proxmox.haasie.nl
           icon: server
-        - name: Pihole
-          url: http://pi.hole/admin
-          icon: pi-hole
       groups:
         - name: Shopping
           links:
