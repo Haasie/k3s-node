@@ -41,15 +41,17 @@ spec:
           - networking
           - media
       customApps:
-        - name: Home Assistant
-          url: https://homeassistant.haasie.nl
-          icon: home-variant
-        - name: Truenas
-          url: https://truenas.haasie.nl
-          icon: nas
-        - name: Proxmox
-          url: https://proxmox.haasie.nl
-          icon: server
+        - group: Infra
+          apps:
+            - name: Home Assistant
+              url: "https://homeassistant.${SECRET_DOMAIN}"
+              icon: home-variant
+            - name: Truenas
+              url: "https://truenas.${SECRET_DOMAIN}"
+              icon: nas
+            - name: Proxmox
+              url: "https://proxmox.${SECRET_DOMAIN}"
+              icon: server
       globalBookmarks:
         - group: Shopping
           bookmarks:
