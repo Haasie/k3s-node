@@ -40,18 +40,18 @@ spec:
           - default
           - networking
           - media
-      customApps:
-        - group: Infra
-          apps:
-            - name: Home Assistant
-              url: "https://homeassistant.${SECRET_DOMAIN}"
-              icon: home-variant
-            - name: Truenas
-              url: "https://truenas.${SECRET_DOMAIN}"
-              icon: nas
-            - name: Proxmox
-              url: "https://proxmox.${SECRET_DOMAIN}"
-              icon: server
+#      customApps:
+#        - group: Infra
+#          apps:
+#            - name: Home Assistant
+#              url: "https://homeassistant.${SECRET_DOMAIN}"
+#              icon: home-variant
+#            - name: Truenas
+#              url: "https://truenas.${SECRET_DOMAIN}"
+#              icon: nas
+#            - name: Proxmox
+#              url: "https://proxmox.${SECRET_DOMAIN}"
+#              icon: server
       globalBookmarks:
         - group: Shopping
           bookmarks:
