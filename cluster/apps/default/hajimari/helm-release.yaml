@@ -50,7 +50,7 @@ spec:
         - name: Proxmox
           url: https://proxmox.haasie.nl
           icon: server
-      bookmarkGroups:
+      globalBookmarks:
         - group: Shopping
           bookmarks:
             - name: Satsback
