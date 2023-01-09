@@ -25,13 +25,14 @@ spec:
   values:
     hajimari:
       title: Apps
+      name: Haasie
       darkTheme: horizon
       alwaysTargetBlank: true
-      showGreeting: false
+      showGreeting: true
       showAppGroups: false
       showAppStatus: false
-      showBookmarkGroups: false
-      showGlobalBookmarks: false
+      showBookmarkGroups: true
+      showGlobalBookmarks: true
       showAppUrls: false
       defaultEnable: true
       namespaceSelector:
