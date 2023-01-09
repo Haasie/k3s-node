@@ -50,12 +50,12 @@ spec:
         - name: Proxmox
           url: https://proxmox.haasie.nl
           icon: server
-      groups:
-        - name: Shopping
+      bookmarkGroups:
+        - group: Shopping
           links:
             - name: Satsback
               url: "https://satsback.com"
-        - name: Communicate
+        - group: Communicate
           links:
             - name: Discord
               url: "https://discord.com"
@@ -63,13 +63,13 @@ spec:
               url: "https://account.proton.me/login?language=en"
             - name: Slack
               url: "https://slack.com/signin"
-        - name: Cloud
+        - group: Cloud
           links:
             - name: Balena cloud
               url: "https://dashboard.balena-cloud.com"
             - name: Drive
               url: "https://drive.google.com"
-        - name: Design
+        - group: Design
           links:
             - name: Awwwards
               url: "https://awwwards.com"
@@ -77,7 +77,7 @@ spec:
               url: "https://dribbble.com"
             - name: Muz.li
               url: "https://medium.muz.li/"
-        - name: Dev
+        - group: Dev
           links:
             - name: Codepen
               url: "https://codepen.io/"
@@ -87,7 +87,7 @@ spec:
               url: "https://devhints.io"
             - name: GitHub
               url: "https://github.com/haasie"
-        - name: Lifestyle
+        - group: Lifestyle
           links:
             - name: Design Milk
               url: "https://design-milk.com/category/interior-design/"
@@ -95,7 +95,7 @@ spec:
               url: "https://www.dwell.com/"
             - name: Freshome
               url: "https://www.mymove.com/freshome/"
-        - name: Media
+        - group: Media
           links:
             - name: Spotify
               url: "http://browse.spotify.com"
@@ -103,7 +103,7 @@ spec:
               url: "http://trakt.tv"
             - name: YouTube
               url: "https://youtube.com/feed/subscriptions"
-        - name: Reading
+        - group: Reading
           links:
             - name: Instapaper
               url: "https://www.instapaper.com/u"
@@ -111,7 +111,7 @@ spec:
               url: "http://medium.com"
             - name: Reddit
               url: "http://reddit.com"
-        - name: Tech
+        - group: Tech
           links:
             - name: Hacker News
               url: "https://news.ycombinator.com/"
@@ -119,7 +119,7 @@ spec:
               url: "https://theverge.com/"
             - name: MIT Technology Review
               url: "https://www.technologyreview.com/"
-        - name: Cyberskilzzz
+        - group: Cyberskilzzz
           links:
             - name: TryHackMe
               url: "https://tryhackme.com"
@@ -131,7 +131,7 @@ spec:
               url: "https://cyberdefenders.org/"
             - name: HackTheBox
               url: "https://www.hackthebox.com/"
-        - name: Learning & Development
+        - group: Learning & Development
           links:
             - name: Udemy
               url: "https://udemy.com"
