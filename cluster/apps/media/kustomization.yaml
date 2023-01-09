@@ -10,5 +10,5 @@ resources:
   - bazarr
   - readarr
   - sabnzbd
-#  - tautulli
+  - tautulli
   - overseerr
