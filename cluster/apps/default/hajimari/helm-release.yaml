@@ -24,13 +24,21 @@ spec:
       retries: 5
   values:
     hajimari:
+      title: Apps
+      darkTheme: horizon
+      alwaysTargetBlank: true
+      showGreeting: false
+      showAppGroups: false
+      showAppStatus: false
+      showBookmarkGroups: false
+      showGlobalBookmarks: false
+      showAppUrls: false
       defaultEnable: true
       namespaceSelector:
         matchNames:
           - default
           - networking
           - media
-      name: "Haasie"
       customApps:
         - name: Home Assistant
           url: https://homeassistant.haasie.nl
